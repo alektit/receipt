@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  color: #2c3e50;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+  display: inline-block;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 992px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+h3 {
+  color: #3498db;
+  margin: 15px 0 10px;
+  font-size: 1.1rem;
+}
+
+.form-section {
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr 0.5fr;
+  gap: 10px;
+  align-items: flex-end;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+#addItemBtn {
+  margin-bottom: 20px;
+}
+
+.remove-item-btn {
+  background-color: #e74c3c;
+}
+
+.remove-item-btn:hover {
+  background-color: #c0392b;
+}
+
+.form-action {
+  text-align: center;
+}
+
+#generateReceiptBtn {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  background-color: #2ecc71;
+}
+
+#generateReceiptBtn:hover {
+  background-color: #27ae60;
+}
+
+.receipt {
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #eee;
+}
+
+.receipt-header h2 {
+  border: none;
+  margin-bottom: 5px;
+}
+
+.receipt-header #previewLogo img {
+  max-height: 60px;
+  margin-bottom: 10px;
+}
+
+.receipt-customer, .receipt-items, .receipt-totals {
+  margin-bottom: 20px;
+}
+
+.receipt-items table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+.receipt-items th, .receipt-items td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.receipt-items th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+}
+
+.receipt-totals {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.receipt-totals .total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.receipt-totals .balance {
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.receipt-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-style: italic;
+  color: #777;
+}
+
+.receipt-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#printReceiptBtn {
+  background-color: #9b59b6;
+}
+
+#printReceiptBtn:hover {
+  background-color: #8e44ad;
+}
+
+#downloadPdfBtn {
+  background-color: #e67e22;
+}
+
+#downloadPdfBtn:hover {
+  background-color: #d35400;
+}
+
+.receipt-preview {
+  display: block;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .receipt, .receipt * {
+    visibility: visible;
+  }
+  
+  .receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+  }
+  
+  .receipt-actions {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .item-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  
+  .form-group.item-total {
+    margin-bottom: 5px;
+  }
+  
+  .form-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .discount-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+.discount-group {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+.discount-group .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
