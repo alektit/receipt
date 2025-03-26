@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
   function generateReceipt() {
     // Get values from form
     const businessName = document.getElementById('businessName').value;
-    const businessLogo = document.getElementById('businessLogo').value;
     const receiptNumber = document.getElementById('receiptNumber').value;
     const receiptDate = document.getElementById('receiptDate').value;
     const customerName = document.getElementById('customerName').value;
@@ -135,15 +134,14 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('previewReceiptNumber').textContent = receiptNumber;
     document.getElementById('previewDate').textContent = formatDate(receiptDate);
     
-    // Set logo if provided
+    // Set logo
     const previewLogo = document.getElementById('previewLogo');
     previewLogo.innerHTML = '';
-    if (businessLogo) {
-      const img = document.createElement('img');
-      img.src = businessLogo;
-      img.alt = businessName + ' Logo';
-      previewLogo.appendChild(img);
-    }
+    const img = document.createElement('img');
+    img.src = "Futura Display (1).png";
+    img.alt = businessName + ' Logo';
+    img.style.height = '60px';
+    previewLogo.appendChild(img);
     
     // Set customer info in preview
     document.getElementById('previewCustomerName').textContent = customerName;
